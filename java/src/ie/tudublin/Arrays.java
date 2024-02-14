@@ -87,7 +87,6 @@ public class Arrays extends PApplet
 	public void setup() {
 		colorMode(HSB);
 		background(0);
-		randomize();
 		
 		
 	}
@@ -100,8 +99,13 @@ public class Arrays extends PApplet
 		float w = width / (float)months.length;
 		for(int i = 0 ; i < months.length ;  i ++)
 		{
-			float x = map1(i, 0, months.length, 0, width);
-			rect(x, height, w, -rainfall[i]);
+			float x = map1(i, 0, months.length, 40, 460);
+			rect(x, 460, w, -rainfall[i]);
 		}
+		stroke(255);
+		line(40,460,460,460);
+		line(40,460,40,40);
+		text(10, 20, 30);
+		textAlign(CENTER, CENTER);
 	}
 }
