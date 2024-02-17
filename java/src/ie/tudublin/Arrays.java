@@ -134,7 +134,37 @@ public class Arrays extends PApplet
 			case 1:
 			{
 				background(0);
+				for(int i = 1 ; i < months.length ;  i++)
+				{
+					float x1 = map1(i - 1, 0, months.length - 1, 40, 460);
+					float y1 = map1(rainfall[i - 1], 0, max(rainfall), 460, 40);
+					
+					float x2 = map1(i, 0, months.length - 1, 40, 460);
+					float y2 = map1(rainfall[i], 0, max(rainfall), 460, 40);
+				
+					line(x1 + 20, y1, x2 + 20, y2);
+				}
 
+				for(int i = 0 ; i < months.length ;  i++)
+				{
+					float x = map1(i, 0, months.length, 40, 460);
+					line(x + 20, 460, x + 20, 470);
+					fill(255);
+					text(months[i], x + 20, 480);
+				}
+
+				for (int i = 0; i <= max(rainfall); i += 20) 
+				{
+					float y = map1(i, 0, max(rainfall), 460, 40);
+					line(35, y, 40, y);
+					text(i, 20, y);
+				}
+
+				stroke(255);
+				line(40,460,460,460);
+				line(40,460,40,40);
+				textAlign(CENTER, CENTER);
+				text("Rainfall Trend Chart", 260, 20);
 				break;
 			}
 		}
