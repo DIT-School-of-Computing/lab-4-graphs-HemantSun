@@ -98,6 +98,13 @@ public class Arrays extends PApplet
 		println(mode);
 	}
 
+	float sum(float[] arr) {
+        float total = 0;
+        for (float value : arr) {
+            total += value;
+        }
+        return total;
+    }
 	
 	public void draw()
 	{	
@@ -165,6 +172,34 @@ public class Arrays extends PApplet
 				line(40,460,40,40);
 				textAlign(CENTER, CENTER);
 				text("Rainfall Trend Chart", 260, 20);
+				break;
+			}
+			case 2:
+			{
+				background(0);
+				float diameter = 300;
+				float lastAngle = 0;
+
+				float totalRainfall = sum(rainfall);
+
+				for (int i = 0; i < rainfall.length; i++) {
+				float hue = map(i, 0, rainfall.length, 0, 255);
+				fill(hue, 255, 255);
+
+				float angle = map(rainfall[i], 0, totalRainfall, 0, TWO_PI);
+				arc(width / 2, height / 2, diameter, diameter, lastAngle, lastAngle + angle);
+				
+				float labelAngle = lastAngle + angle / 2;
+				float labelX = width / 2 + (diameter / 2 + 20) * cos(labelAngle);
+				float labelY = height / 2 + (diameter / 2 + 20) * sin(labelAngle);
+
+				fill(255);
+				textAlign(CENTER, CENTER);
+				text(months[i], labelX, labelY);
+				lastAngle += angle;
+				}
+				fill(255);
+				text("Rainfall piechart", 260, 30);
 				break;
 			}
 		}
