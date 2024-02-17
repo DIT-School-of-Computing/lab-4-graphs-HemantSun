@@ -106,11 +106,15 @@ public class Arrays extends PApplet
 			rect(x, 460, w, -rainfall[i]);
 		}
 
+		for (int i = 0; i <= ceil(max(rainfall) / 20) * 20; i += 10) {
+        float y = map1(i, 0, ceil(max(rainfall) / 20) * 20, 460, 40);
+        line(30, y, 40, y);
+        text(i, 20, y);
+    	}
 		
 		stroke(255);
 		line(40,460,460,460);
 		line(40,460,40,40);
-		text(10, 20, 30);
 		textAlign(CENTER, CENTER);
 	}
 }
