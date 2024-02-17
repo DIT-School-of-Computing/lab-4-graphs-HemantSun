@@ -114,12 +114,13 @@ public class Arrays extends PApplet
 					fill(cc, 255, 255);
 					rect(x, 460, w, -rainfall[i]);
 					line(x + 20, 460, x + 20, 470);
+					fill(255);
 					text(months[i], x + 20, 480);
 				}
 
 				for (int i = 0; i <= max(rainfall); i += 20) {
 				float y = map1(i, 0, max(rainfall), 460, 40);
-				line(30, y, 40, y);
+				line(35, y, 40, y);
 				text(i, 20, y);
 				}
 
@@ -127,11 +128,13 @@ public class Arrays extends PApplet
 				line(40,460,460,460);
 				line(40,460,40,40);
 				textAlign(CENTER, CENTER);
+				text("Rainfall Bar Chart", 260, 20);
 				break;
 			}
 			case 1:
 			{
 				background(0);
+
 				break;
 			}
 		}
